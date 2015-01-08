@@ -38,13 +38,17 @@ class strongswan::config {
     require => Class['strongswan::install'],
   }
 
-  file { $strongswan::ipsec_secrets:
-    ensure  => file,
+  concat { $strongswan::ipsec_secrets:
     owner   => 'root',
     group   => 'root',
     mode    => '0600',
-    content => template("${module_name}/ipsec.secrets.erb"),
     require => Class['strongswan::install'],
     notify  => Class['strongswan::service'],
+  }
+
+  concat::fragment { 'ipsec_secrets_header':
+    target  => $strongswan::ipsec_secrets,
+    content => "# This file is managed by Puppet.\n\n",
+    order   => '01',
   }
 }

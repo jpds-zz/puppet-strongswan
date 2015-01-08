@@ -16,7 +16,7 @@
 #    content => '<Some strongswan directive>',
 #  }
 #
-define strongswan::snippet(
+define strongswan::snippet::ipsec_conf(
   $content,
   $ensure = 'present'
 ) {
@@ -26,6 +26,24 @@ define strongswan::snippet(
     ensure  => $ensure,
     owner   => root,
     group   => root,
+    mode    => '0640',
+    content => "# This file is managed by Puppet, changes may be overwritten.\n${content}\n",
+    require => Class['strongswan::config'],
+    notify  => Class['strongswan::service'],
+  }
+}
+
+define strongswan::snippet::ipsec_secrets(
+  $content,
+  $ensure = 'present'
+) {
+  include strongswan
+
+  file { "/etc/ipsec.${name}.secrets":
+    ensure  => $ensure,
+    owner   => root,
+    group   => root,
+    mode    => '0600',
     content => "# This file is managed by Puppet, changes may be overwritten.\n${content}\n",
     require => Class['strongswan::config'],
     notify  => Class['strongswan::service'],

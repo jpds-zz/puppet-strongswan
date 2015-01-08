@@ -12,22 +12,27 @@
 #
 class strongswan::roadwarrior (
   $conn_name,
-  $left,
+  $left = '%any',
   $leftcert,
+  $leftfirewall = 'yes',
   $leftid,
-  $leftsourceip,
+  $leftkey,
+  $leftkey_type,
+  $leftsourceip = '%config',
   $right,
   $rightid,
   $rightsubnet,
 ) inherits strongswan {
-  if $custom_config {
-    $content_real = template($custom_config)
-  } else {
-    $content_real = template("${module_name}/roadwarrior/ipsec.conf.erb")
-  }
-
-  strongswan::snippet { $conn_name:
+  strongswan::snippet::ipsec_conf { $conn_name:
     ensure  => present,
-    content => $content_real,
+    content => template("${module_name}/roadwarrior/ipsec.conf.erb"),
+  }
+  #strongswan::snippet::ipsec_secrets { $conn_name:
+  #  ensure  => present,
+  #}
+
+  concat::fragment { '$conn_name-key':
+    target => $strongswan::ipsec_secrets,
+    content => template("${module_name}/roadwarrior/ipsec.secrets.erb"),
   }
 }
