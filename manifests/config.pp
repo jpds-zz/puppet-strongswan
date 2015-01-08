@@ -46,9 +46,15 @@ class strongswan::config {
     notify  => Class['strongswan::service'],
   }
 
-  concat::fragment { 'ipsec_secrets_header':
+  concat::fragment { 'ipsec_secrets_ipsec_header':
     target  => $strongswan::ipsec_secrets,
-    content => "# This file is managed by Puppet.\n\n",
+    content => "#\n# /etc/ipsec.secrets - strongSwan IPsec secrets configuration file.\n#\n",
     order   => '01',
+  }
+
+  concat::fragment { 'ipsec_secrets_strongswan_header':
+    target  => $strongswan::ipsec_secrets,
+    content => "# This file is managed by Puppet.\n#\n\n",
+    order   => '02',
   }
 }
