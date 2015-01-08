@@ -12,6 +12,17 @@
 #
 class strongswan::roadwarrior (
   $conn_name,
+  $ike,
+  $esp,
+  $keyexchange,
+  $keyingtries,
+  $ikelifetime,
+  $lifetime,
+  $margintime,
+  $tfc,
+  $closeaction,
+  $dpdaction,
+  $compress,
   $left = '%any',
   $leftcert,
   $leftfirewall = 'yes',
@@ -27,11 +38,8 @@ class strongswan::roadwarrior (
     ensure  => present,
     content => template("${module_name}/roadwarrior/ipsec.conf.erb"),
   }
-  #strongswan::snippet::ipsec_secrets { $conn_name:
-  #  ensure  => present,
-  #}
 
-  concat::fragment { '$conn_name-key':
+  concat::fragment { $conn_name:
     target => $strongswan::ipsec_secrets,
     content => template("${module_name}/roadwarrior/ipsec.secrets.erb"),
   }
