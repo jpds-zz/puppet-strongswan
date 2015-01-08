@@ -2,7 +2,7 @@
   "name": "jpds-strongswan",
   "author": "jpds",
   "summary": "Manage strongSwan peers.",
-  "license": "Apache License, Version 2.0",
+  "license": "MIT License",
   "source": "https://github.com/jpds/puppet-strongswan.git",
   "project_page": "https://github.com/jpds/puppet-strongswan",
   "issues_url": "https://github.com/jpds/puppet-strongswan/issues",
