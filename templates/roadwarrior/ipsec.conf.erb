@@ -1,0 +1,16 @@
+#
+# strongSwan IPsec configuration file.
+#
+# Roadwarrior connection name: <%= scope.lookupvar('strongswan::roadwarrior::conn_name') %>.
+#
+
+conn <%= scope.lookupvar('strongswan::roadwarrior::conn_name') %>
+    left=%any
+    leftcert=<%= scope.lookupvar('strongswan::roadwarrior::leftcert') %>
+    leftid="<%= scope.lookupvar('strongswan::roadwarrior::leftid') %>"
+    leftsourceip=<%= scope.lookupvar('strongswan::roadwarrior::leftsourceip') %>
+    leftfirewall=yes
+    right=<%= scope.lookupvar('strongswan::roadwarrior::right') %>
+    rightid="<%= scope.lookupvar('strongswan::roadwarrior::rightid') %>"
+    rightsubnet=<%= scope.lookupvar('strongswan::roadwarrior::rightsubnet') %>
+    auto=start

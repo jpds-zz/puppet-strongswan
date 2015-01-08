@@ -1,0 +1,32 @@
+{
+  "name": "jpds-strongswan",
+  "author": "jpds",
+  "summary": "Manage strongSwan peers.",
+  "license": "Apache License, Version 2.0",
+  "source": "https://github.com/jpds/puppet-strongswan.git",
+  "project_page": "https://github.com/jpds/puppet-strongswan",
+  "issues_url": "https://github.com/jpds/puppet-strongswan/issues",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian"
+    },
+    {
+      "operatingsystem": "Ubuntu"
+    },
+  ],
+  "requirements": [
+    {
+      "name": "pe",
+      "version_requirement": ">= 3.2.0 < 3.4.0"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": "3.x"
+    }
+  ],
+  "description": "Manage strongSwan peers via Puppet",
+  "types": [
+  ],
+  "dependencies": [
+  ]
+}
