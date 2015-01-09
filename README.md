@@ -4,7 +4,9 @@ This Puppet module contains configurations for strongSwan.
 
 ## Example usage
 
-Parameters for a roadwarrior configuration:
+### Roadwarrior configuration
+
+Parameters for the IPsec connection:
 ```
 class { 'strongswan::roadwarrior':
   conn_name    => 'rw-vpn',
@@ -26,6 +28,14 @@ class { 'strongswan::roadwarrior':
   right        => '10.0.0.1',
   rightid      => "C=UK, CN=GW",
   rightsubnet  => '0.0.0.0/0',
+}
+```
+
+Example charon daemon configuration:
+
+```
+class { 'strongswan::charon':
+  initiator_only => "yes",
 }
 ```
 
