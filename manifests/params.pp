@@ -33,7 +33,6 @@ class strongswan::params {
       $ipsec_conf             = '/etc/ipsec.conf'
       $ipsec_conf_d           = '/etc/ipsec.conf.d/'
       $ipsec_secrets          = '/etc/ipsec.secrets'
-      $ipsec_secrets_d        = '/etc/ipsec.secrets.d/'
       $perm_file              = '0640'
       $perm_dir               = '0755'
       $service_name           = 'strongswan'
