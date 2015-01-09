@@ -30,6 +30,7 @@ class strongswan::params {
       $strongswan_package_name   = 'strongswan'
       $package_status         = 'latest'
       $strongswan_d           = '/etc/strongswan.d/'
+      $charon_conf            = '/etc/strongswan.d/charon.conf'
       $ipsec_conf             = '/etc/ipsec.conf'
       $ipsec_conf_d           = '/etc/ipsec.conf.d/'
       $ipsec_secrets          = '/etc/ipsec.secrets'

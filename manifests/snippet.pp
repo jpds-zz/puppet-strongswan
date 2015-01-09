@@ -49,3 +49,20 @@ define strongswan::snippet::ipsec_secrets(
     notify  => Class['strongswan::service'],
   }
 }
+
+define strongswan::snippet::charon_conf(
+  $content,
+  $ensure = 'present'
+) {
+  include strongswan
+
+  file { "${strongswan::charon_conf}":
+    ensure  => $ensure,
+    owner   => root,
+    group   => root,
+    mode    => '0640',
+    content => "# This file is managed by Puppet, changes may be overwritten.\n${content}\n",
+    require => Class['strongswan::config'],
+    notify  => Class['strongswan::service'],
+  }
+}
