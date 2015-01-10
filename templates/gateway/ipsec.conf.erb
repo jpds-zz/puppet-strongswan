@@ -1,0 +1,27 @@
+#
+# strongSwan IPsec configuration file.
+#
+# Gateway connection name: <%= scope.lookupvar('strongswan::gateway::conn_name') %>.
+#
+
+conn <%= scope.lookupvar('strongswan::gateway::conn_name') %>
+    ike=<%= scope.lookupvar('strongswan::gateway::ike') %>
+    esp=<%= scope.lookupvar('strongswan::gateway::esp') %>
+    keyexchange=<%= scope.lookupvar('strongswan::gateway::keyexchange') %>
+    keyingtries = <%= scope.lookupvar('strongswan::gateway::keyingtries') %>
+    ikelifetime=<%= scope.lookupvar('strongswan::gateway::ikelifetime') %>
+    lifetime=<%= scope.lookupvar('strongswan::gateway::lifetime') %>
+    margintime=<%= scope.lookupvar('strongswan::gateway::margintime') %>
+    tfc = <%= scope.lookupvar('strongswan::gateway::tfc') %>
+    closeaction=<%= scope.lookupvar('strongswan::gateway::closeaction') %>
+    dpdaction=<%= scope.lookupvar('strongswan::gateway::dpdaction') %>
+    compress=<%= scope.lookupvar('strongswan::gateway::compress') %>
+    left=<%= scope.lookupvar('strongswan::gateway::left') %>
+    leftcert=<%= scope.lookupvar('strongswan::gateway::leftcert') %>
+    leftid="<%= scope.lookupvar('strongswan::gateway::leftid') %>"
+    leftfirewall=<%= scope.lookupvar('strongswan::gateway::leftfirewall') %>
+    leftsubnet=<%= scope.lookupvar('strongswan::gateway::leftsubnet') %>
+    right=<%= scope.lookupvar('strongswan::gateway::right') %>
+    rightauth=<%= scope.lookupvar('strongswan::gateway::rightauth') %>
+    rightsourceip=<%= scope.lookupvar('strongswan::gateway::rightsourceip') %>
+    auto=add
