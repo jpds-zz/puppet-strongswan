@@ -93,11 +93,15 @@ class { 'strongswan::roadwarrior':
 }
 ```
 
-Example charon daemon configuration:
+charon daemon configuration can also be adjusted:
 
 ```
 class { 'strongswan::charon':
-  initiator_only => "yes",
+  initiator_only        => "yes",
+  integrity_test        => "yes",
+  crypto_test_on_add    => "yes",
+  crypto_test_on_create => "yes",
+  crypto_test_required  => "yes",
 }
 ```
 
