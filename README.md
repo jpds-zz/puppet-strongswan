@@ -38,7 +38,7 @@ class { 'strongswan::peer':
 
 ### Gateway configuration
 
-Parameters for a IPsec gateway server:
+Parameters for an IPsec gateway server:
 ```
 class { 'strongswan::gateway':
   conn_name      => 'vpn-gw',
@@ -68,7 +68,7 @@ class { 'strongswan::gateway':
 
 ### Roadwarrior configuration
 
-Parameters for a IPsec roadwarrior connection:
+Parameters for an IPsec roadwarrior connection:
 ```
 class { 'strongswan::roadwarrior':
   conn_name    => 'rw-vpn',
