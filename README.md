@@ -33,6 +33,7 @@ class { 'strongswan::peer':
   rightid      => "O=UK, CN=Peer 2",
   rightsubnet  => '10.0.2.0/24',
   auto         => "start",
+}
 ```
 
 ### Gateway configuration
