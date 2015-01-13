@@ -196,7 +196,7 @@ charon {
     crypto_test {
 
         # Benchmark crypto algorithms and order them by efficiency.
-        #bench = yes
+        # bench = no
 
         # Buffer size used for crypto benchmark.
         # bench_size = 1024
@@ -206,13 +206,15 @@ charon {
 
         # Test crypto algorithms during registration (requires test vectors
         # provided by the test-vectors plugin).
-        on_add = yes
+        # on_add = no
+        on_add = <%= scope.lookupvar('strongswan::charon::crypto_test_on_add') %>
 
         # Test crypto algorithms on each crypto primitive instantiation.
-        on_create = yes
+        # on_create = no
+        on_create = <%= scope.lookupvar('strongswan::charon::crypto_test_on_create') %>
 
         # Strictly require at least one test vector to enable an algorithm.
-        required = yes
+        required = <%= scope.lookupvar('strongswan::charon::crypto_test_required') %>
 
         # Whether to test RNG with TRUE quality; requires a lot of entropy.
         #rng_true = no

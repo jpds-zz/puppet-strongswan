@@ -11,8 +11,11 @@
 #  class { 'strongswan::charon': }
 #
 class strongswan::charon (
-  $initiator_only = "no",
-  $integrity_test = "no",
+  $initiator_only        = "no",
+  $integrity_test        = "no",
+  $crypto_test_on_add    = "no",
+  $crypto_test_on_create = "no",
+  $crypto_test_required  = "no",
 ) inherits strongswan {
   strongswan::snippet::charon_conf { 'charon.conf':
     ensure  => present,
