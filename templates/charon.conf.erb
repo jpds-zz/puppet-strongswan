@@ -23,9 +23,11 @@ charon {
 
     # DNS server assigned to peer via configuration payload (CP).
     # dns1 =
+    dns1 = <%= scope.lookupvar('strongswan::charon::dns1') %>
 
     # DNS server assigned to peer via configuration payload (CP).
     # dns2 =
+    dns2 = <%= scope.lookupvar('strongswan::charon::dns2') %>
 
     # Enable Denial of Service protection using cookies and aggressiveness
     # checks.
