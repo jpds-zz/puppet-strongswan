@@ -60,7 +60,7 @@ define strongswan::snippet::charon_conf(
     ensure  => $ensure,
     owner   => root,
     group   => root,
-    mode    => '0640',
+    mode    => '0644',
     content => "# This file is managed by Puppet, changes may be overwritten.\n${content}\n",
     require => Class['strongswan::config'],
     notify  => Class['strongswan::service'],
