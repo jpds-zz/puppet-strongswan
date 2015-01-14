@@ -16,7 +16,7 @@ conn <%= scope.lookupvar('strongswan::peer::conn_name') %>
     dpdaction=<%= scope.lookupvar('strongswan::peer::dpdaction') %>
     compress=<%= scope.lookupvar('strongswan::peer::compress') %>
     left=<%= scope.lookupvar('strongswan::peer::left') %>
-    leftcert="<%= scope.lookupvar('strongswan::peer::leftcert') %>"
+    leftcert=<%= scope.lookupvar('strongswan::peer::leftcert') %>
     leftid="<%= scope.lookupvar('strongswan::peer::leftid') %>"
     leftfirewall=<%= scope.lookupvar('strongswan::peer::leftfirewall') %>
     leftsubnet=<%= scope.lookupvar('strongswan::peer::leftsubnet') %>
