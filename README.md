@@ -97,6 +97,7 @@ charon daemon configuration can also be adjusted:
 
 ```
 class { 'strongswan::charon':
+  dns1                  => "10.0.0.5",
   initiator_only        => "yes",
   integrity_test        => "yes",
   crypto_test_on_add    => "yes",
