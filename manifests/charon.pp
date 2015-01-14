@@ -22,11 +22,11 @@ class strongswan::charon (
 
   # Check DNS setting IPs.
   if $dns1 {
-    if !is_ip_address($dns1) { fail("Expect IP address for dns1, got ${dns1}") }
+    if !is_ip_address($dns1) { fail("Expected IP address for dns1, got ${dns1}") }
   }
 
   if $dns2 {
-    if !is_ip_address($dns2) { fail("Expect IP address for dns2, got ${dns2}") }
+    if !is_ip_address($dns2) { fail("Expected IP address for dns2, got ${dns2}") }
   }
 
   strongswan::snippet::charon_conf { 'charon.conf':
