@@ -5,17 +5,39 @@
 #
 
 conn <%= scope.lookupvar('strongswan::gateway::conn_name') %>
+    <%- ! if scope.lookupvar('strongswan::gateway::ike').empty? -%>
     ike=<%= scope.lookupvar('strongswan::gateway::ike') %>
+    <% end -%>
+    <%- ! if scope.lookupvar('strongswan::gateway::esp').empty? -%>
     esp=<%= scope.lookupvar('strongswan::gateway::esp') %>
+    <% end -%>
+    <%- ! if scope.lookupvar('strongswan::gateway::keyexchange').empty? -%>
     keyexchange=<%= scope.lookupvar('strongswan::gateway::keyexchange') %>
+    <% end -%>
+    <%- ! if scope.lookupvar('strongswan::gateway::keyingtries').empty? -%>
     keyingtries = <%= scope.lookupvar('strongswan::gateway::keyingtries') %>
+    <% end -%>
+    <%- ! if scope.lookupvar('strongswan::gateway::ikelifetime').empty? -%>
     ikelifetime=<%= scope.lookupvar('strongswan::gateway::ikelifetime') %>
+    <% end -%>
+    <%- ! if scope.lookupvar('strongswan::gateway::lifetime').empty? -%>
     lifetime=<%= scope.lookupvar('strongswan::gateway::lifetime') %>
+    <% end -%>
+    <%- ! if scope.lookupvar('strongswan::gateway::margintime').empty? -%>
     margintime=<%= scope.lookupvar('strongswan::gateway::margintime') %>
+    <% end -%>
+    <%- ! if scope.lookupvar('strongswan::gateway::tfc').empty? -%>
     tfc = <%= scope.lookupvar('strongswan::gateway::tfc') %>
+    <% end -%>
+    <%- ! if scope.lookupvar('strongswan::gateway::closeaction').empty? -%>
     closeaction=<%= scope.lookupvar('strongswan::gateway::closeaction') %>
+    <% end -%>
+    <%- ! if scope.lookupvar('strongswan::gateway::dpdaction').empty? -%>
     dpdaction=<%= scope.lookupvar('strongswan::gateway::dpdaction') %>
+    <% end -%>
+    <%- ! if scope.lookupvar('strongswan::gateway::compress').empty? -%>
     compress=<%= scope.lookupvar('strongswan::gateway::compress') %>
+    <% end -%>
     left=<%= scope.lookupvar('strongswan::gateway::left') %>
     leftcert=<%= scope.lookupvar('strongswan::gateway::leftcert') %>
     leftid="<%= scope.lookupvar('strongswan::gateway::leftid') %>"
