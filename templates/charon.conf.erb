@@ -23,13 +23,13 @@ charon {
 
     # DNS server assigned to peer via configuration payload (CP).
     # dns1 =
-    <%- ! if scope.lookupvar('strongswan::charon::dns1').empty? -%>
+    <%- ! if @dns1 -%>
     dns1 = <%= scope.lookupvar('strongswan::charon::dns1') %>
     <% end -%>
 
     # DNS server assigned to peer via configuration payload (CP).
     # dns2 =
-    <%- ! if scope.lookupvar('strongswan::charon::dns2').empty? -%>
+    <%- ! if @dns2 -%>
     dns2 = <%= scope.lookupvar('strongswan::charon::dns2') %>
     <% end -%>
 
