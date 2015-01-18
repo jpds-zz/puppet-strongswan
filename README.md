@@ -70,9 +70,10 @@ Gateway charon configuration:
 
 ```
 class { 'strongswan::charon':
+  dns1                  => "10.0.0.5",
   initiator_only        => "yes",
   integrity_test        => "yes",
-  dns1                  => "10.0.0.5",
+}
 ```
 
 ### Roadwarrior configuration
