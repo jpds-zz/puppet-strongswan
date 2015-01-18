@@ -71,7 +71,7 @@ Gateway charon configuration:
 ```
 class { 'strongswan::charon':
   dns1                  => "10.0.0.5",
-  initiator_only        => "yes",
+  initiator_only        => "no",
   integrity_test        => "yes",
 }
 ```
