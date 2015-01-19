@@ -45,7 +45,6 @@ class { 'strongswan::gateway':
   ike            => "aes128gcm128-prfsha256-ecp256!",
   esp            => "aes128gcm128-ecp256!",
   keyexchange    => "ikev2",
-  keyingtries    => "%forever",
   ikelifetime    => "60m",
   lifetime       => "20m",
   margintime     => "3m",
