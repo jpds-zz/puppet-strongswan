@@ -1,46 +1,46 @@
 #
 # strongSwan IPsec configuration file.
 #
-# Gateway connection name: <%= scope.lookupvar('strongswan::gateway::conn_name') %>.
+# Gateway connection name: <%= @conn_name %>.
 #
 
-conn <%= scope.lookupvar('strongswan::gateway::conn_name') %>
-    <%- ! if scope.lookupvar('strongswan::gateway::ike').empty? -%>
-    ike=<%= scope.lookupvar('strongswan::gateway::ike') %>
+conn <%= @conn_name %>
+    <%- ! if @ike.empty? -%>
+    ike=<%= @ike %>
     <% end -%>
-    <%- ! if scope.lookupvar('strongswan::gateway::esp').empty? -%>
-    esp=<%= scope.lookupvar('strongswan::gateway::esp') %>
+    <%- ! if @esp.empty? -%>
+    esp=<%= @esp %>
     <% end -%>
-    <%- ! if scope.lookupvar('strongswan::gateway::keyexchange').empty? -%>
-    keyexchange=<%= scope.lookupvar('strongswan::gateway::keyexchange') %>
+    <%- ! if @keyexchange.empty? -%>
+    keyexchange=<%= @keyexchange %>
     <% end -%>
-    <%- ! if scope.lookupvar('strongswan::gateway::ikelifetime').empty? -%>
-    ikelifetime=<%= scope.lookupvar('strongswan::gateway::ikelifetime') %>
+    <%- ! if @ikelifetime.empty? -%>
+    ikelifetime=<%= @ikelifetime %>
     <% end -%>
-    <%- ! if scope.lookupvar('strongswan::gateway::lifetime').empty? -%>
-    lifetime=<%= scope.lookupvar('strongswan::gateway::lifetime') %>
+    <%- ! if @lifetime.empty? -%>
+    lifetime=<%= @lifetime %>
     <% end -%>
-    <%- ! if scope.lookupvar('strongswan::gateway::margintime').empty? -%>
-    margintime=<%= scope.lookupvar('strongswan::gateway::margintime') %>
+    <%- ! if @margintime.empty? -%>
+    margintime=<%= @margintime %>
     <% end -%>
-    <%- ! if scope.lookupvar('strongswan::gateway::tfc').empty? -%>
-    tfc = <%= scope.lookupvar('strongswan::gateway::tfc') %>
+    <%- ! if @tfc.empty? -%>
+    tfc = <%= @tfc %>
     <% end -%>
-    <%- ! if scope.lookupvar('strongswan::gateway::closeaction').empty? -%>
-    closeaction=<%= scope.lookupvar('strongswan::gateway::closeaction') %>
+    <%- ! if @closeaction.empty? -%>
+    closeaction=<%= @closeaction %>
     <% end -%>
-    <%- ! if scope.lookupvar('strongswan::gateway::dpdaction').empty? -%>
-    dpdaction=<%= scope.lookupvar('strongswan::gateway::dpdaction') %>
+    <%- ! if @dpdaction.empty? -%>
+    dpdaction=<%= @dpdaction %>
     <% end -%>
-    <%- ! if scope.lookupvar('strongswan::gateway::compress').empty? -%>
-    compress=<%= scope.lookupvar('strongswan::gateway::compress') %>
+    <%- ! if @compress.empty? -%>
+    compress=<%= @compress %>
     <% end -%>
-    left=<%= scope.lookupvar('strongswan::gateway::left') %>
-    leftcert=<%= scope.lookupvar('strongswan::gateway::leftcert') %>
-    leftid="<%= scope.lookupvar('strongswan::gateway::leftid') %>"
-    leftfirewall=<%= scope.lookupvar('strongswan::gateway::leftfirewall') %>
-    leftsubnet=<%= scope.lookupvar('strongswan::gateway::leftsubnet') %>
-    right=<%= scope.lookupvar('strongswan::gateway::right') %>
-    rightauth=<%= scope.lookupvar('strongswan::gateway::rightauth') %>
-    rightsourceip=<%= scope.lookupvar('strongswan::gateway::rightsourceip') %>
+    left=<%= @left %>
+    leftcert=<%= @leftcert %>
+    leftid="<%= @leftid %>"
+    leftfirewall=<%= @leftfirewall %>
+    leftsubnet=<%= @leftsubnet %>
+    right=<%= @right %>
+    rightauth=<%= @rightauth %>
+    rightsourceip=<%= @rightsourceip %>
     auto=add
