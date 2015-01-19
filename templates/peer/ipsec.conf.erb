@@ -1,27 +1,27 @@
 #
 # strongSwan IPsec configuration file.
 #
-# Peer connection name: <%= scope.lookupvar('strongswan::peer::conn_name') %>.
+# Peer connection name: <%= @conn_name %>.
 #
 
-conn <%= scope.lookupvar('strongswan::peer::conn_name') %>
-    ike=<%= scope.lookupvar('strongswan::peer::ike') %>
-    esp=<%= scope.lookupvar('strongswan::peer::esp') %>
-    keyexchange=<%= scope.lookupvar('strongswan::peer::keyexchange') %>
-    keyingtries = <%= scope.lookupvar('strongswan::peer::keyingtries') %>
-    ikelifetime=<%= scope.lookupvar('strongswan::peer::ikelifetime') %>
-    lifetime=<%= scope.lookupvar('strongswan::peer::lifetime') %>
-    margintime=<%= scope.lookupvar('strongswan::peer::margintime') %>
-    closeaction=<%= scope.lookupvar('strongswan::peer::closeaction') %>
-    dpdaction=<%= scope.lookupvar('strongswan::peer::dpdaction') %>
-    compress=<%= scope.lookupvar('strongswan::peer::compress') %>
-    left=<%= scope.lookupvar('strongswan::peer::left') %>
-    leftcert=<%= scope.lookupvar('strongswan::peer::leftcert') %>
-    leftid="<%= scope.lookupvar('strongswan::peer::leftid') %>"
-    leftfirewall=<%= scope.lookupvar('strongswan::peer::leftfirewall') %>
-    leftsubnet=<%= scope.lookupvar('strongswan::peer::leftsubnet') %>
-    right=<%= scope.lookupvar('strongswan::peer::right') %>
-    rightauth=<%= scope.lookupvar('strongswan::peer::rightauth') %>
-    rightid="<%= scope.lookupvar('strongswan::peer::rightid') %>"
-    rightsubnet=<%= scope.lookupvar('strongswan::peer::rightsubnet') %>
-    auto=<%= scope.lookupvar('strongswan::peer::auto') %>
+conn <%= @conn_name %>
+    ike=<%= @ike %>
+    esp=<%= @esp %>
+    keyexchange=<%= @keyexchange %>
+    keyingtries = <%= @keyingtries %>
+    ikelifetime=<%= @ikelifetime %>
+    lifetime=<%= @lifetime %>
+    margintime=<%= @margintime %>
+    closeaction=<%= @closeaction %>
+    dpdaction=<%= @dpdaction %>
+    compress=<%= @compress %>
+    left=<%= @left %>
+    leftcert=<%= @leftcert %>
+    leftid="<%= @leftid %>"
+    leftfirewall=<%= @leftfirewall %>
+    leftsubnet=<%= @leftsubnet %>
+    right=<%= @right %>
+    rightauth=<%= @rightauth %>
+    rightid="<%= @rightid %>"
+    rightsubnet=<%= @rightsubnet %>
+    auto=<%= @auto %>

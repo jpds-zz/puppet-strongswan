@@ -1,27 +1,27 @@
 #
 # strongSwan IPsec configuration file.
 #
-# Roadwarrior connection name: <%= scope.lookupvar('strongswan::roadwarrior::conn_name') %>.
+# Roadwarrior connection name: <%= @conn_name %>.
 #
 
-conn <%= scope.lookupvar('strongswan::roadwarrior::conn_name') %>
-    ike=<%= scope.lookupvar('strongswan::roadwarrior::ike') %>
-    esp=<%= scope.lookupvar('strongswan::roadwarrior::esp') %>
-    keyexchange=<%= scope.lookupvar('strongswan::roadwarrior::keyexchange') %>
-    keyingtries = <%= scope.lookupvar('strongswan::roadwarrior::keyingtries') %>
-    ikelifetime=<%= scope.lookupvar('strongswan::roadwarrior::ikelifetime') %>
-    lifetime=<%= scope.lookupvar('strongswan::roadwarrior::lifetime') %>
-    margintime=<%= scope.lookupvar('strongswan::roadwarrior::margintime') %>
-    tfc = <%= scope.lookupvar('strongswan::roadwarrior::tfc') %>
-    closeaction=<%= scope.lookupvar('strongswan::roadwarrior::closeaction') %>
-    dpdaction=<%= scope.lookupvar('strongswan::roadwarrior::dpdaction') %>
-    compress=<%= scope.lookupvar('strongswan::roadwarrior::compress') %>
-    left=<%= scope.lookupvar('strongswan::roadwarrior::left') %>
-    leftcert=<%= scope.lookupvar('strongswan::roadwarrior::leftcert') %>
-    leftid="<%= scope.lookupvar('strongswan::roadwarrior::leftid') %>"
-    leftsourceip=<%= scope.lookupvar('strongswan::roadwarrior::leftsourceip') %>
-    leftfirewall=<%= scope.lookupvar('strongswan::roadwarrior::leftfirewall') %>
-    right=<%= scope.lookupvar('strongswan::roadwarrior::right') %>
-    rightid="<%= scope.lookupvar('strongswan::roadwarrior::rightid') %>"
-    rightsubnet=<%= scope.lookupvar('strongswan::roadwarrior::rightsubnet') %>
+conn <%= @conn_name %>
+    ike=<%= @ike %>
+    esp=<%= @esp %>
+    keyexchange=<%= @keyexchange %>
+    keyingtries = <%= @keyingtries %>
+    ikelifetime=<%= @ikelifetime %>
+    lifetime=<%= @lifetime %>
+    margintime=<%= @margintime %>
+    tfc = <%= @tfc %>
+    closeaction=<%= @closeaction %>
+    dpdaction=<%= @dpdaction %>
+    compress=<%= @compress %>
+    left=<%= @left %>
+    leftcert=<%= @leftcert %>
+    leftid="<%= @leftid %>"
+    leftsourceip=<%= @leftsourceip %>
+    leftfirewall=<%= @leftfirewall %>
+    right=<%= @right %>
+    rightid="<%= @rightid %>"
+    rightsubnet=<%= @rightsubnet %>
     auto=start
