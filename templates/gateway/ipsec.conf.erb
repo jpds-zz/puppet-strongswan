@@ -5,34 +5,34 @@
 #
 
 conn <%= @conn_name %>
-    <%- ! if @ike.empty? -%>
+    <%- ! if @ike -%>
     ike=<%= @ike %>
     <% end -%>
-    <%- ! if @esp.empty? -%>
+    <%- ! if @esp -%>
     esp=<%= @esp %>
     <% end -%>
-    <%- ! if @keyexchange.empty? -%>
+    <%- ! if @keyexchange -%>
     keyexchange=<%= @keyexchange %>
     <% end -%>
-    <%- ! if @ikelifetime.empty? -%>
+    <%- ! if @ikelifetime -%>
     ikelifetime=<%= @ikelifetime %>
     <% end -%>
-    <%- ! if @lifetime.empty? -%>
+    <%- ! if @lifetime -%>
     lifetime=<%= @lifetime %>
     <% end -%>
-    <%- ! if @margintime.empty? -%>
+    <%- ! if @margintime -%>
     margintime=<%= @margintime %>
     <% end -%>
-    <%- ! if @tfc.empty? -%>
+    <%- ! if @tfc -%>
     tfc = <%= @tfc %>
     <% end -%>
-    <%- ! if @closeaction.empty? -%>
+    <%- ! if @closeaction -%>
     closeaction=<%= @closeaction %>
     <% end -%>
-    <%- ! if @dpdaction.empty? -%>
+    <%- ! if @dpdaction -%>
     dpdaction=<%= @dpdaction %>
     <% end -%>
-    <%- ! if @compress.empty? -%>
+    <%- ! if @compress -%>
     compress=<%= @compress %>
     <% end -%>
     left=<%= @left %>
