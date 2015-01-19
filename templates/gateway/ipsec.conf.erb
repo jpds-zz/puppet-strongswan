@@ -14,9 +14,6 @@ conn <%= scope.lookupvar('strongswan::gateway::conn_name') %>
     <%- ! if scope.lookupvar('strongswan::gateway::keyexchange').empty? -%>
     keyexchange=<%= scope.lookupvar('strongswan::gateway::keyexchange') %>
     <% end -%>
-    <%- ! if scope.lookupvar('strongswan::gateway::keyingtries').empty? -%>
-    keyingtries = <%= scope.lookupvar('strongswan::gateway::keyingtries') %>
-    <% end -%>
     <%- ! if scope.lookupvar('strongswan::gateway::ikelifetime').empty? -%>
     ikelifetime=<%= scope.lookupvar('strongswan::gateway::ikelifetime') %>
     <% end -%>

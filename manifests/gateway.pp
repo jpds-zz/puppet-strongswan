@@ -15,7 +15,6 @@ class strongswan::gateway (
   $ike         = '',
   $esp         = '',
   $keyexchange = '',
-  $keyingtries = '',
   $ikelifetime = '',
   $lifetime    = '',
   $margintime  = '',
