@@ -11,8 +11,8 @@
 #  class { 'strongswan::charon': }
 #
 class strongswan::charon (
-  $dns1                  = '',
-  $dns2                  = '',
+  $dns1                  = undef,
+  $dns2                  = undef,
   $initiator_only        = "no",
   $integrity_test        = "no",
   $crypto_test_on_add    = "no",
