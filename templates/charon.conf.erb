@@ -84,7 +84,7 @@ charon {
     # init_limit_job_load = 0
 
     # Causes charon daemon to ignore IKE initiation requests.
-    initiator_only = <%= scope.lookupvar('strongswan::charon::initiator_only') %>
+    initiator_only = <%= @initiator_only %>
 
     # Install routes into a separate routing table for established IPsec
     # tunnels.
@@ -98,7 +98,7 @@ charon {
     # install_virtual_ip_on =
 
     # Check daemon, libstrongswan and plugin integrity at startup.
-    integrity_test = <%= scope.lookupvar('strongswan::charon::integrity_test') %>
+    integrity_test = <%= @integrity_test %>
 
     # A comma-separated list of network interfaces that should be ignored, if
     # interfaces_use is specified this option has no effect.
@@ -213,14 +213,14 @@ charon {
         # Test crypto algorithms during registration (requires test vectors
         # provided by the test-vectors plugin).
         # on_add = no
-        on_add = <%= scope.lookupvar('strongswan::charon::crypto_test_on_add') %>
+        on_add = <%= @crypto_test_on_add %>
 
         # Test crypto algorithms on each crypto primitive instantiation.
         # on_create = no
-        on_create = <%= scope.lookupvar('strongswan::charon::crypto_test_on_create') %>
+        on_create = <%= @crypto_test_on_create %>
 
         # Strictly require at least one test vector to enable an algorithm.
-        required = <%= scope.lookupvar('strongswan::charon::crypto_test_required') %>
+        required = <%= @crypto_test_required %>
 
         # Whether to test RNG with TRUE quality; requires a lot of entropy.
         #rng_true = no
