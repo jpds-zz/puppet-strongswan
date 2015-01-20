@@ -1,0 +1,35 @@
+
+conn %default
+<%- if @ike -%>
+    ike=<%= @ike %>
+<% end -%>
+<%- if @esp -%>
+    esp=<%= @esp %>
+<% end -%>
+<%- if @keyexchange -%>
+    keyexchange=<%= @keyexchange %>
+<% end -%>
+<%- if @keyingtries -%>
+    keyingtries=<%= @keyingtries %>
+<% end -%>
+<%- if @ikelifetime -%>
+    ikelifetime=<%= @ikelifetime %>
+<% end -%>
+<%- if @lifetime -%>
+    lifetime=<%= @lifetime %>
+<% end -%>
+<%- if @margintime -%>
+    margintime=<%= @margintime %>
+<% end -%>
+<%- if @tfc -%>
+    tfc = <%= @tfc %>
+<% end -%>
+<%- if @closeaction -%>
+    closeaction=<%= @closeaction %>
+<% end -%>
+<%- if @dpdaction -%>
+    dpdaction=<%= @dpdaction %>
+<% end -%>
+<%- if @compress -%>
+    compress=<%= @compress %>
+<% end -%>
