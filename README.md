@@ -4,6 +4,24 @@ This Puppet module contains configurations for strongSwan.
 
 ## Example usage
 
+### Default configuration
+
+*conn %default* configurations can be set using the 'strongswan::default' class:
+
+```
+class { 'strongswan::default':
+  ike          => "aes128gcm128-prfsha256-ecp256!",
+  esp          => "aes128gcm128-ecp256!",
+  keyexchange  => "ikev2",
+  ikelifetime  => "60m",
+  lifetime     => "20m",
+  margintime   => "3m",
+  closeaction  => "restart",
+  dpdaction    => "restart",
+  compress     => "yes",
+}
+```
+
 ### Peer configuration
 
 Parameters for an IPsec peer:
@@ -11,16 +29,6 @@ Parameters for an IPsec peer:
 ```
 class { 'strongswan::peer':
   conn_name    => 'peer',
-  ike          => "aes128gcm128-prfsha256-ecp256!",
-  esp          => "aes128gcm128-ecp256!",
-  keyexchange  => "ikev2",
-  keyingtries  => "%forever",
-  ikelifetime  => "60m",
-  lifetime     => "20m",
-  margintime   => "3m",
-  closeaction  => "restart",
-  dpdaction    => "restart",
-  compress     => "yes",
   left         => "10.0.1.1",
   leftcert     => 'peerCert.der',
   leftfirewall => 'no',
@@ -42,16 +50,6 @@ Parameters for an IPsec gateway server:
 ```
 class { 'strongswan::gateway':
   conn_name      => 'vpn-gw',
-  ike            => "aes128gcm128-prfsha256-ecp256!",
-  esp            => "aes128gcm128-ecp256!",
-  keyexchange    => "ikev2",
-  ikelifetime    => "60m",
-  lifetime       => "20m",
-  margintime     => "3m",
-  tfc            => "%mtu",
-  closeaction    => "restart",
-  dpdaction      => "restart",
-  compress       => "yes",
   left           => '%any',
   leftcert       => 'gwCert.der',
   leftfirewall   => "yes",
@@ -81,17 +79,7 @@ Parameters for an IPsec roadwarrior connection:
 ```
 class { 'strongswan::roadwarrior':
   conn_name    => 'rw-vpn',
-  ike          => "aes128gcm128-prfsha256-ecp256!",
-  esp          => "aes128gcm128-ecp256!",
-  keyexchange  => "ikev2",
   keyingtries  => "%forever",
-  ikelifetime  => "60m",
-  lifetime     => "20m",
-  margintime   => "3m",
-  tfc          => "%mtu",
-  closeaction  => "restart",
-  dpdaction    => "restart",
-  compress     => "yes",
   leftcert     => 'rwCert.der',
   leftkey      => 'rwKey.der',
   leftkey_type => 'ECDSA',

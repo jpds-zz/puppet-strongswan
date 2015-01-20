@@ -24,6 +24,7 @@ class strongswan::config {
     ensure  => file,
     owner   => 'root',
     group   => 'root',
+    mode    => '0644',
     content => template("${module_name}/ipsec.conf.erb"),
     require => Class['strongswan::install'],
     notify  => Class['strongswan::service'],
