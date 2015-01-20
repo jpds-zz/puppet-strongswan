@@ -5,39 +5,39 @@
 #
 
 conn <%= @conn_name %>
-    <%- if @ike -%>
+<%- if @ike -%>
     ike=<%= @ike %>
-    <% end -%>
-    <%- if @esp -%>
+<% end -%>
+<%- if @esp -%>
     esp=<%= @esp %>
-    <% end -%>
-    <%- if @keyexchange -%>
+<% end -%>
+<%- if @keyexchange -%>
     keyexchange=<%= @keyexchange %>
-    <% end -%>
-    <%- if @keyingtries -%>
+<% end -%>
+<%- if @keyingtries -%>
     keyingtries=<%= @keyingtries %>
-    <% end -%>
-    <%- if @ikelifetime -%>
+<% end -%>
+<%- if @ikelifetime -%>
     ikelifetime=<%= @ikelifetime %>
-    <% end -%>
-    <%- if @lifetime -%>
+<% end -%>
+<%- if @lifetime -%>
     lifetime=<%= @lifetime %>
-    <% end -%>
-    <%- if @margintime -%>
+<% end -%>
+<%- if @margintime -%>
     margintime=<%= @margintime %>
-    <% end -%>
-    <%- if @tfc -%>
+<% end -%>
+<%- if @tfc -%>
     tfc = <%= @tfc %>
-    <% end -%>
-    <%- if @closeaction -%>
+<% end -%>
+<%- if @closeaction -%>
     closeaction=<%= @closeaction %>
-    <% end -%>
-    <%- if @dpdaction -%>
+<% end -%>
+<%- if @dpdaction -%>
     dpdaction=<%= @dpdaction %>
-    <% end -%>
-    <%- if @compress -%>
+<% end -%>
+<%- if @compress -%>
     compress=<%= @compress %>
-    <% end -%>
+<% end -%>
     left=<%= @left %>
     leftcert=<%= @leftcert %>
     leftid="<%= @leftid %>"
