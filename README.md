@@ -4,6 +4,25 @@ This Puppet module contains configurations for strongSwan.
 
 ## Example usage
 
+### Default configuration
+
+*conn %default* configurations can be set using the 'strongswan::default' class:
+
+```
+class { 'strongswan::default':
+  ike          => "aes128gcm128-prfsha256-ecp256!",
+  esp          => "aes128gcm128-ecp256!",
+  keyexchange  => "ikev2",
+  keyingtries  => "%forever",
+  ikelifetime  => "60m",
+  lifetime     => "20m",
+  margintime   => "3m",
+  closeaction  => "restart",
+  dpdaction    => "restart",
+  compress     => "yes",
+}
+```
+
 ### Peer configuration
 
 Parameters for an IPsec peer:
