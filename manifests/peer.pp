@@ -29,12 +29,12 @@ class strongswan::peer (
   $leftkey_type,
   $leftid,
   $leftfirewall,
-  $leftsendcert   = undef
+  $leftsendcert   = undef,
   $leftsubnet     = undef,
   $right,
   $rightauth,
   $rightid,
-  $rightsendcert  = undef
+  $rightsendcert  = undef,
   $rightsubnet    = undef,
   $auto,
 ) inherits strongswan {
