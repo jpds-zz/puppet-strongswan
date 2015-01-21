@@ -39,8 +39,14 @@ conn <%= @conn_name %>
     leftcert=<%= @leftcert %>
     leftid="<%= @leftid %>"
     leftfirewall=<%= @leftfirewall %>
+<%- if @leftsendcert -%>
+    leftsendcert=<%= @leftsendcert %>
+<% end -%>
     leftsubnet=<%= @leftsubnet %>
     right=<%= @right %>
     rightauth=<%= @rightauth %>
+<%- if @rightsendcert -%>
+    rightsendcert=<%= @rightsendcert %>
+<% end -%>
     rightsourceip=<%= @rightsourceip %>
     auto=add
