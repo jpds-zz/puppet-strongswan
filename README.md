@@ -34,11 +34,11 @@ class { 'strongswan::peer':
   leftfirewall => 'no',
   leftkey      => 'peerKey.der',
   leftkey_type => 'ECDSA',
-  leftid       => "O=UK, CN=Peer 1",
+  leftid       => "C=UK, CN=Peer 1",
   leftsubnet   => "10.0.1.0/24",
   right        => '10.0.2.1',
   rightauth    => 'pubkey',
-  rightid      => "O=UK, CN=Peer 2",
+  rightid      => "C=UK, CN=Peer 2",
   rightsubnet  => '10.0.2.0/24',
   auto         => "start",
 }
