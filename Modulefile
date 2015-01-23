@@ -1,0 +1,10 @@
+name          'jpds-strongswan'
+version       '20150123.1.0'
+source        'https://github.com/jpds/puppet-strongswan'
+author        'Jonathan Davies'
+license       'MIT'
+summary       'Manage strongswan'
+project_page  'https://github.com/jpds/puppet-strongswan'
+
+dependency 'puppetlabs/stdlib', '>= 3.0.0'
+dependency 'puppetlabs/concat', '>= 1.0.0'
