@@ -12,8 +12,9 @@
 #
 #  class { 'strongswan': }
 #
-class strongswan (
-) inherits strongswan::params {
+class strongswan
+{
+  include strongswan::params
   class { 'strongswan::install': }
   class { 'strongswan::config': }
   class { 'strongswan::service': }
