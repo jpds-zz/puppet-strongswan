@@ -11,7 +11,8 @@
       "operatingsystem": "Debian"
     },
     {
-      "operatingsystem": "Ubuntu"
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [ "14.04" ]
     },
   ],
   "requirements": [
