@@ -56,7 +56,7 @@ define strongswan::snippet::charon_conf(
 ) {
   include strongswan
 
-  file { "${strongswan::charon_conf}":
+  file { $strongswan::charon_conf:
     ensure  => $ensure,
     owner   => root,
     group   => root,
