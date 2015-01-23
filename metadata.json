@@ -1,6 +1,6 @@
 {
   "name": "jpds-strongswan",
-  "author": "jpds",
+  "author": "Jonathan Davies",
   "summary": "Manage strongSwan peers.",
   "license": "MIT License",
   "source": "https://github.com/jpds/puppet-strongswan.git",
@@ -28,5 +28,8 @@
   "types": [
   ],
   "dependencies": [
+      { "name": "puppetlabs/stdlib", "version_requirement": ">= 3.2.0" },
+      { "name": "puppetlabs/concat", "version_requirement": ">= 1.0.0" }
+    ]
   ]
 }
