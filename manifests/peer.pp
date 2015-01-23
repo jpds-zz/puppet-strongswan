@@ -44,7 +44,7 @@ class strongswan::peer (
   }
 
   concat::fragment { $conn_name:
-    target => $strongswan::ipsec_secrets,
+    target  => $strongswan::ipsec_secrets,
     content => template("${module_name}/peer/ipsec.secrets.erb"),
   }
 }
