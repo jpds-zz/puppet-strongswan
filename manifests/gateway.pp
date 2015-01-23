@@ -41,7 +41,7 @@ class strongswan::gateway (
   }
 
   concat::fragment { $conn_name:
-    target => $strongswan::ipsec_secrets,
+    target  => $strongswan::ipsec_secrets,
     content => template("${module_name}/gateway/ipsec.secrets.erb"),
   }
 }
