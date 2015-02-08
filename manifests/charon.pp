@@ -18,6 +18,7 @@ class strongswan::charon (
   $crypto_test_on_add    = 'no',
   $crypto_test_on_create = 'no',
   $crypto_test_required  = 'no',
+  $crypto_test_rng_true  = 'no',
 ) inherits strongswan {
 
   # Check DNS setting IPs.
