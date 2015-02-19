@@ -8,7 +8,7 @@ This Puppet module contains configurations for strongSwan.
 
 *conn %default* configurations can be set using the 'strongswan::default' class:
 
-```
+```puppet
 class { 'strongswan::default':
   ike          => "aes128gcm128-prfsha256-ecp256!",
   esp          => "aes128gcm128-ecp256!",
@@ -26,7 +26,7 @@ class { 'strongswan::default':
 
 Parameters for an IPsec peer:
 
-```
+```puppet
 class { 'strongswan::peer':
   conn_name    => 'peer',
   left         => "10.0.1.1",
@@ -47,7 +47,7 @@ class { 'strongswan::peer':
 ### Gateway configuration
 
 Parameters for an IPsec gateway server:
-```
+```puppet
 class { 'strongswan::gateway':
   conn_name      => 'vpn-gw',
   left           => '%any',
@@ -65,7 +65,7 @@ class { 'strongswan::gateway':
 
 Gateway charon configuration:
 
-```
+```puppet
 class { 'strongswan::charon':
   dns1                  => "10.0.0.5",
   initiator_only        => "no",
@@ -76,7 +76,7 @@ class { 'strongswan::charon':
 ### Roadwarrior configuration
 
 Parameters for an IPsec roadwarrior connection:
-```
+```puppet
 class { 'strongswan::roadwarrior':
   conn_name    => 'rw-vpn',
   keyingtries  => "%forever",
@@ -93,7 +93,7 @@ class { 'strongswan::roadwarrior':
 charon daemon configuration can also be adjusted, for example, for a client
 configuration:
 
-```
+```puppet
 class { 'strongswan::charon':
   initiator_only        => "yes",
   integrity_test        => "yes",
