@@ -11,10 +11,9 @@
 # === Examples
 #
 #  class { 'strongswan': }
-#
-class strongswan
-{
-  include strongswan::params
+
+class strongswan (
+) inherits strongswan::params {
   class { 'strongswan::install': }
   class { 'strongswan::config': }
   class { 'strongswan::service': }
