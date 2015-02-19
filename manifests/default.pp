@@ -22,6 +22,7 @@ class strongswan::default (
   $closeaction = undef,
   $dpdaction   = undef,
   $compress    = undef,
+  $rekey       = undef,
 ) inherits strongswan {
   strongswan::snippet::ipsec_conf { 'default':
     ensure  => present,
