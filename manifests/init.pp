@@ -1,20 +1,39 @@
-# == Class: strongswan
-#
-# Meta class to install strongswan with a basic configuration.
-# You probably want strongswan::roadwarrior or strongswan::gateway or
-# strongswan::peer
-#
-# === Parameters
-#
-# === Variables
-#
-# === Examples
-#
-#  class { 'strongswan': }
-
-class strongswan (
+# Default strongSwan class.
+class strongswan(
+  $package_name = $strongswan::params::package,
+  $service_name = $strongswan::params::service,
 ) inherits strongswan::params {
-  class { 'strongswan::install': }
-  class { 'strongswan::config': }
-  class { 'strongswan::service': }
+  package { $package_name:
+    ensure => installed,
+    before => File['ipsec.d'],
+  }
+
+  class { '::strongswan::service':
+    service_name => $service_name,
+  }
+
+  file { 'ipsec.d':
+    ensure => directory,
+    path   => $strongswan::params::ipsec_d_dir,
+    mode   => '0755',
+    owner  => 'root',
+    group  => 'root',
+  }
+
+  concat {  $strongswan::params::ipsec_conf:
+    ensure => present,
+    mode    => '0644',
+    owner   => 'root',
+    group   => 'root',
+    require => Package[$package_name],
+    notify  => Class['Strongswan::Service'],
+  }
+
+  concat::fragment { 'ipsec_conf_header':
+    ensure  => present,
+    content => template('strongswan/ipsec_conf_header.erb'),
+    target  => $strongswan::params::ipsec_conf,
+    order   => '01',
+  }
 }
+
