@@ -4,21 +4,23 @@ This Puppet module contains configurations for strongSwan.
 
 ## Example usage
 
-### Default configuration
-
-*conn %default* configurations can be set using the 'strongswan::default' class:
+strongSwan can be installed by simply doing:
 
 ```puppet
-class { 'strongswan::default':
-  ike          => "aes128gcm128-prfsha256-ecp256!",
-  esp          => "aes128gcm128-ecp256!",
-  keyexchange  => "ikev2",
-  ikelifetime  => "60m",
-  lifetime     => "20m",
-  margintime   => "3m",
-  closeaction  => "restart",
-  dpdaction    => "restart",
-  compress     => "yes",
+include strongswan
+```
+
+### Default configuration
+
+*conn %default* configurations can be set as follows:
+
+```puppet
+strongswan::conn { '%default':
+  options => {
+    "ike"         => "aes128gcm128-prfsha256-ecp256!",
+    "esp"         => "aes128gcm128-ecp256!",
+    "keyexchange" => "ikev2",
+  }
 }
 ```
 
@@ -27,20 +29,21 @@ class { 'strongswan::default':
 Parameters for an IPsec peer:
 
 ```puppet
-class { 'strongswan::peer':
-  conn_name    => 'peer',
-  left         => "10.0.1.1",
-  leftcert     => 'peerCert.der',
-  leftfirewall => 'no',
-  leftkey      => 'peerKey.der',
-  leftkey_type => 'ECDSA',
-  leftid       => "C=UK, CN=Peer 1",
-  leftsubnet   => "10.0.1.0/24",
-  right        => '10.0.2.1',
-  rightauth    => 'pubkey',
-  rightid      => "C=UK, CN=Peer 2",
-  rightsubnet  => '10.0.2.0/24',
-  auto         => "start",
+strongswan::conn { 'peer':
+  options => {
+    "left"         => "10.0.1.1",
+    "leftcert"     => 'peerCert.der',
+    "leftfirewall" => 'no',
+    "leftkey"      => 'peerKey.der',
+    "leftkey_type" => 'ECDSA',
+    "leftid"       => '"C=UK, CN=Peer 1"',
+    "leftsubnet"   => "10.0.1.0/24",
+    "right"        => '10.0.2.1',
+    "rightauth"    => 'pubkey',
+    "rightid"      => '"C=UK, CN=Peer 2"',
+    "rightsubnet"  => '10.0.2.0/24',
+    "auto"         => "start",
+  }
 }
 ```
 
