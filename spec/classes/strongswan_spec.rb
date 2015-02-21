@@ -33,6 +33,11 @@ describe 'strongswan', :type => 'class' do
         'notify' => 'Class[Strongswan::Service]',
       )
     }
+
+    it {
+      should contain_concat__fragment('ipsec_conf_header') \
+        .with_content(/# This file is managed by Puppet.$/)
+    }
   end
 
   context "on a Red Hat OS" do
