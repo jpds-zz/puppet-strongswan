@@ -4,8 +4,11 @@ describe 'strongswan', :type => 'class' do
   context "on a Debian OS" do
     let :facts do
       {
+        :id             => 'root',
+        :is_pe          => false,
         :osfamily       => 'Debian',
         :concat_basedir => '/dne',
+        :path           => '/usr/sbin:/usr/bin:/sbin:/bin',
       }
     end
 
@@ -86,8 +89,11 @@ describe 'strongswan', :type => 'class' do
   context "on a Red Hat OS" do
     let :facts do
       {
+        :id             => 'root',
+        :is_pe          => false,
         :osfamily       => 'RedHat',
         :concat_basedir => '/dne',
+        :path           => '/usr/sbin:/usr/bin:/sbin:/bin',
       }
     end
 

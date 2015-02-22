@@ -55,14 +55,16 @@ strongswan::secrets { 'peer':
 Parameters for an IPsec gateway server:
 ```puppet
 strongswan::conn { 'gateway':
-  "left "         => '%any',
-  "leftcert"      => 'gwCert.der',
-  "leftfirewall"  => "yes",
-  "leftid"        => "C=UK, CN=GW",
-  "leftsubnet"    => '10.0.0.0/24',
-  "right"         => '%any',
-  "rightauth"     => "pubkey",
-  "rightsourceip" => '10.0.1.0/24',
+  options => {
+    "left "         => '%any',
+    "leftcert"      => 'gwCert.der',
+    "leftfirewall"  => "yes",
+    "leftid"        => "C=UK, CN=GW",
+    "leftsubnet"    => '10.0.0.0/24',
+    "right"         => '%any',
+    "rightauth"     => "pubkey",
+    "rightsourceip" => '10.0.1.0/24',
+  }
 }
 
 strongswan::secrets { 'peer':
@@ -87,12 +89,14 @@ Parameters for an IPsec roadwarrior connection:
 
 ```puppet
 strongswan::conn { 'roadwarrior':
-  "keyingtries"  => "%forever",
-  "leftcert"     => 'rwCert.der',
-  "leftid"       => "C=UK, CN=rw",
-  "right"        => '10.0.0.1',
-  "rightid"      => "C=UK, CN=GW",
-  "rightsubnet"  => '0.0.0.0/0',
+  options => {
+    "keyingtries"  => "%forever",
+    "leftcert"     => 'rwCert.der',
+    "leftid"       => "C=UK, CN=rw",
+    "right"        => '10.0.0.1',
+    "rightid"      => "C=UK, CN=GW",
+    "rightsubnet"  => '0.0.0.0/0',
+  }
 }
 
 strongswan::secrets { 'roadwarrior':

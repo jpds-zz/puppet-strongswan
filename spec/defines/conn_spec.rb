@@ -8,8 +8,11 @@ describe 'strongswan::conn', :type => :define do
   context 'default conn settings on a Debian system' do
     let(:facts) {
       {
+        :id             => 'root',
+        :is_pe          => false,
         :osfamily       => 'Debian',
         :concat_basedir => '/dne',
+        :path           => '/usr/sbin:/usr/bin:/sbin:/bin',
       }
     }
     let(:title) { '%default' }
