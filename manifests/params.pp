@@ -18,5 +18,5 @@ class strongswan::params {
   $ipsec_d_dir            = '/etc/ipsec.d'
   $ipsec_conf             = '/etc/ipsec.conf'
   $ipsec_secrets          = '/etc/ipsec.secrets'
-  $charon_conf            = '/etc/strongswan/charon.conf'
+  $charon_conf            = '/etc/strongswan.d/charon.conf'
 }

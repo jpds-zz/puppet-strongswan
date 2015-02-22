@@ -11,7 +11,7 @@ describe 'strongswan::charon', :type => 'class' do
     it {
       should contain_file('charon.conf').with(
         "ensure"  => "present",
-        "path"    => "/etc/strongswan/charon.conf",
+        "path"    => "/etc/strongswan.d/charon.conf",
         "mode"    => '0644',
         "owner"   => 'root',
         "group"   => 'root',
