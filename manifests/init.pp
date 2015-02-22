@@ -20,6 +20,14 @@ class strongswan(
     group  => 'root',
   }
 
+  file { 'ipsec.d/private':
+    ensure => directory,
+    path   => "${strongswan::params::ipsec_d_dir}/private",
+    mode   => '0700',
+    owner  => 'root',
+    group  => 'root',
+  }
+
   concat {  $strongswan::params::ipsec_conf:
     ensure  => present,
     mode    => '0644',

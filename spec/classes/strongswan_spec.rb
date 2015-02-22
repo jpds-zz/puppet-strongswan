@@ -35,6 +35,15 @@ describe 'strongswan', :type => 'class' do
 
     it { should contain_file('ipsec.d').that_requires('Package[strongswan]') }
 
+    it { should contain_file('ipsec.d/private').with(
+        'ensure' => 'directory',
+        'path'   => '/etc/ipsec.d/private',
+        'mode'   => '0700',
+        'owner'  => 'root',
+        'group'  => 'root',
+      )
+    }
+
     it {
       should contain_concat('/etc/ipsec.conf').with(
         'ensure' => 'present',
