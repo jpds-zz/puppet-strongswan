@@ -1,0 +1,5 @@
+conn <%= @conn_name %>
+<% Array(@options).each do |option, setting| -%>
+    <%= option %>=<%= setting %>
+<% end -%>
+
