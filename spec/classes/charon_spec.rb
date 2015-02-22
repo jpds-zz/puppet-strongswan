@@ -9,7 +9,15 @@ describe 'strongswan::charon', :type => 'class' do
     end
 
     it {
-      should contain_file('charon.conf')
+      should contain_file('charon.conf').with(
+        "ensure"  => "present",
+        "path"    => "/etc/strongswan/charon.conf",
+        "mode"    => '0644',
+        "owner"   => 'root',
+        "group"   => 'root',
+        "require" => "Package[strongswan]",
+        "notify"  => "Class[Strongswan::Service]",
+      )
     }
 
     context "with setup options set" do
