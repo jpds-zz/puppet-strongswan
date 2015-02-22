@@ -10,12 +10,17 @@ describe 'strongswan', :type => 'class' do
     end
 
     it { should compile }
+
     it {
       should contain_package('strongswan') \
         .that_comes_before('File[ipsec.d]')
+    }
+
+    it {
       should contain_package('strongswan') \
         .that_comes_before('Concat[/etc/ipsec.conf]')
     }
+
     it { should contain_file('ipsec.d').with(
         'ensure' => 'directory',
         'path'   => '/etc/ipsec.d',
@@ -24,6 +29,7 @@ describe 'strongswan', :type => 'class' do
         'group'  => 'root',
       )
     }
+
     it {
       should contain_concat('/etc/ipsec.conf').with(
         'ensure' => 'present',
@@ -36,6 +42,21 @@ describe 'strongswan', :type => 'class' do
 
     it {
       should contain_concat__fragment('ipsec_conf_header') \
+        .with_content(/# This file is managed by Puppet.$/)
+    }
+
+    it {
+      should contain_concat('/etc/ipsec.secrets').with(
+        'ensure' => 'present',
+        'mode'   => '0600',
+        'owner'  => 'root',
+        'group'  => 'root',
+        'notify' => 'Class[Strongswan::Service]',
+      )
+    }
+
+    it {
+      should contain_concat__fragment('ipsec_secrets_header') \
         .with_content(/# This file is managed by Puppet.$/)
     }
   end
