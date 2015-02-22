@@ -2,6 +2,10 @@
 
 This Puppet module contains configurations for strongSwan.
 
+## Build status
+
+[![Build Status](https://travis-ci.org/jpds/puppet-strongswan.svg?branch=master)](https://travis-ci.org/jpds/puppet-strongswan)
+
 ## Example usage
 
 strongSwan can be installed by simply doing:
@@ -47,6 +51,7 @@ strongswan::conn { 'peer':
 strongswan::secrets { 'peer':
   options => {
     'ECDSA'        => 'peerKey.der',
+  }
 }
 ```
 
@@ -56,7 +61,7 @@ Parameters for an IPsec gateway server:
 ```puppet
 strongswan::conn { 'gateway':
   options => {
-    "left "         => '%any',
+    "left"          => '%any',
     "leftcert"      => 'gwCert.der',
     "leftfirewall"  => "yes",
     "leftid"        => '"C=UK, CN=GW"',
@@ -69,7 +74,8 @@ strongswan::conn { 'gateway':
 
 strongswan::secrets { 'peer':
   options => {
-  'ECDSA'         => 'gwKey.der',
+    'ECDSA'         => 'gwKey.der',
+  }
 }
 ```
 
@@ -91,6 +97,7 @@ Parameters for an IPsec roadwarrior connection:
 strongswan::conn { 'roadwarrior':
   options => {
     "keyingtries"  => "%forever",
+    "left"          => '%any',
     "leftcert"     => 'rwCert.der',
     "leftid"       => '"C=UK, CN=rw"',
     "right"        => '10.0.0.1',
@@ -101,7 +108,8 @@ strongswan::conn { 'roadwarrior':
 
 strongswan::secrets { 'roadwarrior':
   options => {
-  'ECDSA'        => 'rwKey.der',
+    'ECDSA'        => 'rwKey.der',
+  }
 }
 ```
 
