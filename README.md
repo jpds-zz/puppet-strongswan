@@ -34,8 +34,6 @@ strongswan::conn { 'peer':
     "left"         => "10.0.1.1",
     "leftcert"     => 'peerCert.der',
     "leftfirewall" => 'no',
-    "leftkey"      => 'peerKey.der',
-    "leftkey_type" => 'ECDSA',
     "leftid"       => '"C=UK, CN=Peer 1"',
     "leftsubnet"   => "10.0.1.0/24",
     "right"        => '10.0.2.1',
@@ -45,24 +43,31 @@ strongswan::conn { 'peer':
     "auto"         => "start",
   }
 }
+
+strongswan::secrets { 'peer':
+  options => {
+    'ECDSA'        => 'peerKey.der',
+}
 ```
 
 ### Gateway configuration
 
 Parameters for an IPsec gateway server:
 ```puppet
-class { 'strongswan::gateway':
-  conn_name      => 'vpn-gw',
-  left           => '%any',
-  leftcert       => 'gwCert.der',
-  leftfirewall   => "yes",
-  leftkey        => 'gwKey.der',
-  leftkey_type   => 'ECDSA',
-  leftid         => "C=UK, CN=GW",
-  leftsubnet     => '10.0.0.0/24',
-  right          => '%any',
-  rightauth      => "pubkey",
-  rightsourceip  => '10.0.1.0/24',
+strongswan::conn { 'gateway':
+  "left "         => '%any',
+  "leftcert"      => 'gwCert.der',
+  "leftfirewall"  => "yes",
+  "leftid"        => "C=UK, CN=GW",
+  "leftsubnet"    => '10.0.0.0/24',
+  "right"         => '%any',
+  "rightauth"     => "pubkey",
+  "rightsourceip" => '10.0.1.0/24',
+}
+
+strongswan::secrets { 'peer':
+  options => {
+  'ECDSA'         => 'gwKey.der',
 }
 ```
 
@@ -79,17 +84,20 @@ class { 'strongswan::charon':
 ### Roadwarrior configuration
 
 Parameters for an IPsec roadwarrior connection:
+
 ```puppet
-class { 'strongswan::roadwarrior':
-  conn_name    => 'rw-vpn',
-  keyingtries  => "%forever",
-  leftcert     => 'rwCert.der',
-  leftkey      => 'rwKey.der',
-  leftkey_type => 'ECDSA',
-  leftid       => "C=UK, CN=rw",
-  right        => '10.0.0.1',
-  rightid      => "C=UK, CN=GW",
-  rightsubnet  => '0.0.0.0/0',
+strongswan::conn { 'roadwarrior':
+  "keyingtries"  => "%forever",
+  "leftcert"     => 'rwCert.der',
+  "leftid"       => "C=UK, CN=rw",
+  "right"        => '10.0.0.1',
+  "rightid"      => "C=UK, CN=GW",
+  "rightsubnet"  => '0.0.0.0/0',
+}
+
+strongswan::secrets { 'roadwarrior':
+  options => {
+  'ECDSA'        => 'rwKey.der',
 }
 ```
 
