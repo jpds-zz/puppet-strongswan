@@ -1,3 +1,4 @@
+# strongSwan setup configuration.
 class strongswan::setup(
   $options = {},
 ) inherits strongswan::params {

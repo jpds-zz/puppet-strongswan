@@ -1,3 +1,4 @@
+# strongSwan charon class.
 class strongswan::charon (
   $dns1                  = undef,
   $dns2                  = undef,
@@ -10,11 +11,15 @@ class strongswan::charon (
 ) inherits strongswan::params {
   # Check DNS setting IPs.
   if $dns1 {
-    if !is_ip_address($dns1) { fail("Expected IP address for dns1, got ${dns1}") }
+    if !is_ip_address($dns1) {
+      fail("Expected IP address for dns1, got ${dns1}")
+    }
   }
 
   if $dns2 {
-    if !is_ip_address($dns2) { fail("Expected IP address for dns2, got ${dns2}") }
+    if !is_ip_address($dns2) {
+      fail("Expected IP address for dns2, got ${dns2}")
+    }
   }
 
   file { 'charon.conf':

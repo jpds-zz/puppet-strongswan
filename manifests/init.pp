@@ -21,7 +21,7 @@ class strongswan(
   }
 
   concat {  $strongswan::params::ipsec_conf:
-    ensure => present,
+    ensure  => present,
     mode    => '0644',
     owner   => 'root',
     group   => 'root',
@@ -37,7 +37,7 @@ class strongswan(
   }
 
   concat {  $strongswan::params::ipsec_secrets:
-    ensure => present,
+    ensure  => present,
     mode    => '0600',
     owner   => 'root',
     group   => 'root',

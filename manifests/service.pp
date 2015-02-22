@@ -1,3 +1,4 @@
+# strongSwan service management.
 class strongswan::service(
   $service_name   = $::strongswan::params::service,
 ) {
