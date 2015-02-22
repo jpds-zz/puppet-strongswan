@@ -30,6 +30,8 @@ describe 'strongswan', :type => 'class' do
       )
     }
 
+    it { should contain_file('ipsec.d').that_requires('Package[strongswan]') }
+
     it {
       should contain_concat('/etc/ipsec.conf').with(
         'ensure' => 'present',
@@ -38,6 +40,16 @@ describe 'strongswan', :type => 'class' do
         'group'  => 'root',
         'notify' => 'Class[Strongswan::Service]',
       )
+    }
+
+    it {
+      should contain_concat('/etc/ipsec.conf') \
+        .that_requires('Package[strongswan]')
+    }
+
+    it {
+      should contain_concat('/etc/ipsec.conf') \
+        .that_notifies('Class[Strongswan::Service]')
     }
 
     it {
@@ -53,6 +65,16 @@ describe 'strongswan', :type => 'class' do
         'group'  => 'root',
         'notify' => 'Class[Strongswan::Service]',
       )
+    }
+
+    it {
+      should contain_concat('/etc/ipsec.secrets') \
+        .that_requires('Package[strongswan]')
+    }
+
+    it {
+      should contain_concat('/etc/ipsec.secrets') \
+        .that_notifies('Class[Strongswan::Service]')
     }
 
     it {
