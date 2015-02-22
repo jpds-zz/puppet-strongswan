@@ -14,7 +14,8 @@ class strongswan::params {
     }
   }
 
-  $service      = 'strongswan'
-  $ipsec_d_dir  = '/etc/ipsec.d'
-  $ipsec_conf   = '/etc/ipsec.conf'
+  $service       = 'strongswan'
+  $ipsec_d_dir   = '/etc/ipsec.d'
+  $ipsec_conf    = '/etc/ipsec.conf'
+  $ipsec_secrets = '/etc/ipsec.secrets'
 }

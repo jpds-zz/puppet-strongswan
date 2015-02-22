@@ -35,5 +35,21 @@ class strongswan(
     target  => $strongswan::params::ipsec_conf,
     order   => '01',
   }
+
+  concat {  $strongswan::params::ipsec_secrets:
+    ensure => present,
+    mode    => '0600',
+    owner   => 'root',
+    group   => 'root',
+    require => Package[$package_name],
+    notify  => Class['Strongswan::Service'],
+  }
+
+  concat::fragment { 'ipsec_secrets_header':
+    ensure  => present,
+    content => template('strongswan/ipsec_secrets_header.erb'),
+    target  => $strongswan::params::ipsec_secrets,
+    order   => '01',
+  }
 }
 
