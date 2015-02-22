@@ -59,7 +59,7 @@ strongswan::conn { 'gateway':
     "left "         => '%any',
     "leftcert"      => 'gwCert.der',
     "leftfirewall"  => "yes",
-    "leftid"        => "C=UK, CN=GW",
+    "leftid"        => '"C=UK, CN=GW"',
     "leftsubnet"    => '10.0.0.0/24',
     "right"         => '%any',
     "rightauth"     => "pubkey",
@@ -92,9 +92,9 @@ strongswan::conn { 'roadwarrior':
   options => {
     "keyingtries"  => "%forever",
     "leftcert"     => 'rwCert.der',
-    "leftid"       => "C=UK, CN=rw",
+    "leftid"       => '"C=UK, CN=rw"',
     "right"        => '10.0.0.1',
-    "rightid"      => "C=UK, CN=GW",
+    "rightid"      => '"C=UK, CN=GW"',
     "rightsubnet"  => '0.0.0.0/0',
   }
 }
