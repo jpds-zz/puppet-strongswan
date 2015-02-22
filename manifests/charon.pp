@@ -1,12 +1,12 @@
 class strongswan::charon (
-  $dns1 = undef,
-  $dns2 = undef,
-  $initiator_only = 'no',
-  $integrity_test = 'no',
-  $crypto_test_on_add = 'no',
+  $dns1                  = undef,
+  $dns2                  = undef,
+  $initiator_only        = 'no',
+  $integrity_test        = 'no',
+  $crypto_test_on_add    = 'no',
   $crypto_test_on_create = 'no',
-  $crypto_test_required = 'no',
-  $crypto_test_rng_true = 'no',
+  $crypto_test_required  = 'no',
+  $crypto_test_rng_true  = 'no',
 ) inherits strongswan::params {
   # Check DNS setting IPs.
   if $dns1 {
