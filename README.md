@@ -69,6 +69,7 @@ strongswan::conn { 'gateway':
     "right"         => '%any',
     "rightauth"     => "pubkey",
     "rightsourceip" => '10.0.1.0/24',
+    "auto"          => 'add',
   }
 }
 
@@ -97,12 +98,13 @@ Parameters for an IPsec roadwarrior connection:
 strongswan::conn { 'roadwarrior':
   options => {
     "keyingtries"  => "%forever",
-    "left"          => '%any',
+    "left"         => '%any',
     "leftcert"     => 'rwCert.der',
     "leftid"       => '"C=UK, CN=rw"',
     "right"        => '10.0.0.1',
     "rightid"      => '"C=UK, CN=GW"',
     "rightsubnet"  => '0.0.0.0/0',
+    "auto"         => 'start',
   }
 }
 
