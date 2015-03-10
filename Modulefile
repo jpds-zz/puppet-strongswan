@@ -1,5 +1,5 @@
 name          'jpds-strongswan'
-version       '20150222.1.0'
+version       '20150310.1.0'
 source        'https://github.com/jpds/puppet-strongswan'
 author        'Jonathan Davies'
 license       'MIT'
