@@ -51,6 +51,9 @@ charon {
 
     # Name of the group the daemon changes to after startup.
     # group =
+    <%- if @group -%>
+    group = <%= @group %>
+    <% end -%>
 
     # Timeout in seconds for connecting IKE_SAs (also see IKE_SA_INIT DROPPING).
     # half_open_timeout = 30
@@ -200,6 +203,9 @@ charon {
 
     # Name of the user the daemon changes to after startup.
     #user =
+    <%- if @user -%>
+    user = <%= @user %>
+    <% end -%>
 
     crypto_test {
 

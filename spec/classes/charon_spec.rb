@@ -31,9 +31,28 @@ describe 'strongswan::charon', :type => 'class' do
         should contain_file('charon.conf') \
           .with_content(/^    dns1 = 8.8.8.8$/)
       }
+
       it {
         should contain_file('charon.conf') \
           .without_content(/^    dns2 = 8.8.8.8$/)
+      }
+    end
+    context "with charon user and group set" do
+      let :params do
+        {
+          :user => 'strongswan',
+          :group => 'nogroup',
+        }
+      end
+
+      it {
+        should contain_file('charon.conf') \
+          .with_content(/^    group = nogroup$/)
+      }
+
+      it {
+        should contain_file('charon.conf') \
+          .with_content(/^    user = strongswan$/)
       }
     end
   end
