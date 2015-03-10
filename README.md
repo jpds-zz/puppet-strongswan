@@ -16,7 +16,9 @@ include strongswan
 
 ### Default configuration
 
-*conn %default* configurations can be set as follows:
+*conn %default* configurations can be set as follows, please note that while
+this is a working example, the toppings should be adjusted for one's
+preference:
 
 ```puppet
 strongswan::conn { '%default':
@@ -24,6 +26,12 @@ strongswan::conn { '%default':
     "ike"         => "aes128gcm128-prfsha256-ecp256!",
     "esp"         => "aes128gcm128-ecp256!",
     "keyexchange" => "ikev2",
+    "ikelifetime" => "60m",
+    "lifetime"    => "20m",
+    "margintime"  => "3m",
+    "closeaction" => "restart",
+    "dpdaction"   => "restart",
+    "compress"    => "no",
   }
 }
 ```
