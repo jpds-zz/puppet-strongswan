@@ -147,6 +147,19 @@ class { 'strongswan::charon':
 }
 ```
 
+### Setup configuration
+
+The IPsec 'config setup' section can be configured as follows:
+
+```puppet
+class { 'strongswan::setup':
+  options => {
+    'strictcrlpolicy' => 'yes',
+    'charondebug'     => '"ike 2, knl 3, cfg 0"'
+  }
+}
+```
+
 ## License
 
 See [LICENSE](LICENSE) file.
