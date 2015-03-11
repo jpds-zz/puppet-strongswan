@@ -100,7 +100,7 @@ class { 'strongswan::charon':
 }
 ```
 
-**NOTE**: This module is solely intended to handle the strongSwan components of
+**Note**: This module is solely intended to handle the strongSwan components of
 the system. Other parts of the infrastructure, such as *iptables* and *sysctl*,
 are to be managed by their respective modules. The following will enable packet
 forwarding on the gateway node, for instance:
