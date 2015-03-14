@@ -111,18 +111,18 @@ describe 'strongswan', :type => 'class' do
       should contain_package('strongswan') \
         .that_comes_before('File[ipsec.d]')
       should contain_package('strongswan') \
-        .that_comes_before('Concat[/etc/ipsec.conf]')
+        .that_comes_before('Concat[/etc/strongswan/ipsec.conf]')
     }
     it { should contain_file('ipsec.d').with(
         'ensure' => 'directory',
-        'path'   => '/etc/ipsec.d',
+        'path'   => '/etc/strongswan/ipsec.d',
         'mode'   => '0755',
         'owner'  => 'root',
         'group'  => 'root',
       )
     }
     it {
-      should contain_concat('/etc/ipsec.conf').with(
+      should contain_concat('/etc/strongswan/ipsec.conf').with(
         'ensure' => 'present',
         'mode'   => '0644',
         'owner'  => 'root',
