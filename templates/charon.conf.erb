@@ -112,6 +112,9 @@ charon {
     # A comma-separated list of network interfaces that should be used by
     # charon. All other interfaces are ignored.
     # interfaces_use =
+<%- if @interfaces_use -%>
+    interfaces_use = <%= @interfaces_use %>
+<% end -%>
 
     # NAT keep alive interval.
     # keep_alive = 20s

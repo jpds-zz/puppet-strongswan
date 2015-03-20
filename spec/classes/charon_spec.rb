@@ -55,5 +55,18 @@ describe 'strongswan::charon', :type => 'class' do
           .with_content(/^    user = strongswan$/)
       }
     end
+
+    context "with charon interfaces_use set" do
+      let :params do
+        {
+          :interfaces_use => 'eth0',
+        }
+      end
+
+      it {
+        should contain_file('charon.conf') \
+          .with_content(/^    interfaces_use = eth0$/)
+      }
+    end
   end
 end
