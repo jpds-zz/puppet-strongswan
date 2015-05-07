@@ -68,5 +68,18 @@ describe 'strongswan::charon', :type => 'class' do
           .with_content(/^    interfaces_use = eth0$/)
       }
     end
+
+    context "with charon ikesa_table_size set" do
+      let :params do
+        {
+          :ikesa_table_size => '1024',
+        }
+      end
+
+      it {
+        should contain_file('charon.conf') \
+          .with_content(/^    ikesa_table_size = 1024$/)
+      }
+    end
   end
 end

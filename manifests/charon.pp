@@ -2,6 +2,8 @@
 class strongswan::charon (
   $dns1                  = undef,
   $dns2                  = undef,
+  $ikesa_table_segments  = undef,
+  $ikesa_table_size      = undef,
   $initiator_only        = 'no',
   $integrity_test        = 'no',
   $crypto_test_on_add    = 'no',
@@ -22,6 +24,18 @@ class strongswan::charon (
   if $dns2 {
     if !is_ip_address($dns2) {
       fail("Expected IP address for dns2, got ${dns2}")
+    }
+  }
+
+  if $ikesa_table_size {
+    if !is_integer($ikesa_table_size) {
+      fail("Expected integer for ikesa_table_size, got ${ikesa_table_size}")
+    }
+  }
+
+  if $ikesa_table_segments {
+    if !is_integer($ikesa_table_segments) {
+      fail("Expected integer for ikesa_table_segments, got ${ikesa_table_segments}")
     }
   }
 

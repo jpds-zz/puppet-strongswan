@@ -74,9 +74,15 @@ charon {
 
     # Number of exclusively locked segments in the hash table.
     # ikesa_table_segments = 1
+    <%- if @ikesa_table_segments -%>
+    ikesa_table_segments = <%= @ikesa_table_segments %>
+    <% end -%>
 
     # Size of the IKE_SA hash table.
     # ikesa_table_size = 1
+    <%- if @ikesa_table_size -%>
+    ikesa_table_size = <%= @ikesa_table_size %>
+    <% end -%>
 
     # Whether to close IKE_SA if the only CHILD_SA closed due to inactivity.
     # inactivity_close_ike = no
