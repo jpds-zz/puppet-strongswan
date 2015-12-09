@@ -2,6 +2,7 @@
 define strongswan::secrets(
   $secrets_name = $title,
   $options = {},
+  $id = {},
 ) {
   # The base class must be included first because it is used by parameter
   # defaults.
