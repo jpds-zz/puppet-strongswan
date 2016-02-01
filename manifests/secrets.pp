@@ -2,6 +2,10 @@
 define strongswan::secrets(
   $secrets_name = $title,
   $options = {},
+  $leftid = "",
+  $rightid = "",
+  $auth = "",
+  $key = "",
 ) {
   # The base class must be included first because it is used by parameter
   # defaults.
