@@ -13,6 +13,13 @@ class strongswan::charon (
   $group                 = undef,
   $interfaces_use        = undef,
   $user                  = undef,
+  $retransmit_base       = undef,
+  $retransmit_timeout    = undef,
+  $retransmit_tries      = undef,
+  $retry_initiate_interval = undef,
+  $keep_alive            = undef,
+  $port                  = undef,
+  $port_nat_t            = undef,
 ) inherits strongswan::params {
   # Check DNS setting IPs.
   if $dns1 {
