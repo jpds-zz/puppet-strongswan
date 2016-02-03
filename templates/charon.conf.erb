@@ -124,6 +124,9 @@ charon {
 
     # NAT keep alive interval.
     # keep_alive = 20s
+    <%- if @keep_alive %>
+    keep_alive = <%= @keep_alive %>
+    <% end -%>
 
     # Plugins to load in the IKE daemon charon.
     # load =
@@ -145,11 +148,17 @@ charon {
 
     # UDP port used locally. If set to 0 a random port will be allocated.
     # port = 500
+    <%- if @port -%>
+    port = <%= @port %>
+    <% end -%>
 
     # UDP port used locally in case of NAT-T. If set to 0 a random port will be
     # allocated.  Has to be different from charon.port, otherwise a random port
     # will be allocated.
     # port_nat_t = 4500
+    <%- if @port_nat_t -%>
+    port_nat_t = <%= @port_nat_t %>
+    <% end -%>
 
     # Process RTM_NEWROUTE and RTM_DELROUTE events.
     # process_route = yes
@@ -171,17 +180,31 @@ charon {
 
     # Base to use for calculating exponential back off, see IKEv2 RETRANSMISSION
     # in strongswan.conf(5).
-    # retransmit_base = 1.8
+    # retransmit_base = 1.8 # default
+    <%- if @retransmit_base -%>
+    retransmit_base = <%= @retransmit_base %>
+    <% end -%>
 
     # Timeout in seconds before sending first retransmit.
-    # retransmit_timeout = 4.0
+    # retransmit_timeout = 4.0 # default
+    <%- if @retransmit_timeout -%>
+    retransmit_timeout = <%= @retransmit_timeout %>
+    <% end -%>
 
     # Number of times to retransmit a packet before giving up.
-    # retransmit_tries = 5
+    # retransmit_tries = 5 # default
+    <%- if @retransmit_tries -%>
+    retransmit_tries = <%= @retransmit_tries %>
+    <% end -%>
+    
 
     # Interval to use when retrying to initiate an IKE_SA (e.g. if DNS
     # resolution failed), 0 to disable retries.
+    <%- if @retry_initiate_interval -%>
+    retry_initiate_interval = <%= @retry_initiate_interval %>
+    <%- else -%>
     retry_initiate_interval = 5
+    <% end -%>
 
     # Initiate CHILD_SA within existing IKE_SAs.
     # reuse_ikesa = yes

@@ -93,7 +93,13 @@ describe 'strongswan', :type => 'class' do
       should contain_concat__fragment('ipsec_secrets_header') \
         .with_content(/# This file is managed by Puppet.$/)
     }
+
+
   end
+
+
+
+
 
   context "on a Red Hat OS" do
     let :facts do
