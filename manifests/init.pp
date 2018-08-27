@@ -38,7 +38,6 @@ class strongswan(
   }
 
   concat::fragment { 'ipsec_conf_header':
-    ensure  => present,
     content => template('strongswan/ipsec_conf_header.erb'),
     target  => $strongswan::params::ipsec_conf,
     order   => '01',
@@ -54,7 +53,6 @@ class strongswan(
   }
 
   concat::fragment { 'ipsec_secrets_header':
-    ensure  => present,
     content => template('strongswan/ipsec_secrets_header.erb'),
     target  => $strongswan::params::ipsec_secrets,
     order   => '01',

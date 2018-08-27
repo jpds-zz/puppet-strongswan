@@ -12,7 +12,6 @@ define strongswan::conn(
   validate_hash($options)
 
   concat::fragment { "ipsec_conf_conn-${conn_name}":
-    ensure  => present,
     content => template('strongswan/ipsec_conf_conn.erb'),
     target  => $strongswan::params::ipsec_conf,
     order   => '03',

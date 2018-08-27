@@ -13,7 +13,6 @@ define strongswan::secrets(
   validate_hash($options)
 
   concat::fragment { "ipsec_secrets_secret-${secrets_name}":
-    ensure  => present,
     content => template('strongswan/ipsec_secrets_secret.erb'),
     target  => $strongswan::params::ipsec_secrets,
     order   => '02',
